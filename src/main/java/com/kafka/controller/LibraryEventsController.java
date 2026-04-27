@@ -1,5 +1,6 @@
 package com.kafka.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.kafka.domain.LibraryEvent;
 import com.kafka.poducer.LibraryEventsProducer;
 import lombok.extern.slf4j.Slf4j;
@@ -23,7 +24,7 @@ public class LibraryEventsController {
     }
 
     @PostMapping("/v1/libraryevent")
-    public ResponseEntity<LibraryEvent> postLibraryEvent(@RequestBody LibraryEvent libraryEvent) throws ExecutionException, InterruptedException, TimeoutException {
+    public ResponseEntity<LibraryEvent> postLibraryEvent(@RequestBody LibraryEvent libraryEvent) throws ExecutionException, InterruptedException, TimeoutException, JsonProcessingException {
 
         log.info("libraryEvent: {} ", libraryEvent);
         //invoke the kafka producer
